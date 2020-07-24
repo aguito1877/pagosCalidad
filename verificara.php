@@ -30,6 +30,7 @@ while ($fila = mysqli_fetch_array($query)) {
 
 
     if(mysqli_num_rows($query)>=1){
+        session_destroy();
     session_start();
     $_SESSION['cedula'] = $cedula;
     ?>
