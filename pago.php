@@ -20,10 +20,40 @@ include './template.php';
     <link rel="stylesheet" type="text/css" href="css/demotarj.css">
     <title class="lang" key="cod_len1">Pagos Agiles</title>
     <!--<link rel="stylesheet" href="../style.css">-->
-
+    <script src="js/cronometro.js" type="text/javascript"></script>
 </head>
+<style>
+h1{
+    
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    background: #A1FFCE;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #FAFFD1, #A1FFCE);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #FAFFD1, #A1FFCE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-<body>
+    padding:5px;
+}
+ul.horizontal{
+margin:0;
+padding:0;
+}
+ul.horizontal li{
+    margin:0;
+    padding:0;
+display:block;
+float:left;
+padding:0 10px;
+}
+a{
+    margin:0;
+padding:0;  
+
+}
+/* */
+</style>
+
+<body onload="carga()">
+    
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
@@ -58,26 +88,27 @@ include './template.php';
                         <span class="lang" key="cod_len4">Menu</span>
 
                     </button>
-                    <button type="button" id="btn5" class="btn btn-info">
+                    <!--<button type="button" id="btn5" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
                         <span class="lang" key="cod_len5">Administrar</span>
 
-                    </button>
+                    </button>-->
 
-                    <a href="Inicio.html" class="lang" key="cod_len6_1">Inicio</a>
+                    <a href="Inicio.html" class="lang"  key="cod_len6_1" style="border-radius: 6px; padding:8px; border: 0px solid;  background: #E0EAFC; " >Inicio</a>
 
-                    <ul>
+                    <ul class="horizontal">
                         <li>
-                            <button class="traslate" id="en" style="border-radius: 6px; border:0; background-color: transparent; "><img src="img/ingles.jpg" id="visa" width="25" height="15"> </button>
+                            <button class="traslate" id="en" style="border-radius: 6px; border:0 solid; background-color: transparent; "><img src="img/ingles.jpg" id="visa" width="30" height="20"></button>  /
                         </li>
 
                         <li>
-                            <button class="traslate" id="fra" style="border-radius: 6px; border:0; background-color: transparent; "><img src="img/frances.gif" id="visa" width="25" height="10"></button>
+                            <button class="traslate" id="fra" style="border-radius: 6px; border:0; background-color: transparent; "><img src="img/frances.gif" id="visa" width="30" height="20"></button>  /
                         </li>
 
                         <li>
-                            <button class="traslate" id="ale" style="border-radius: 6px; border:0; background-color: transparent; "><img src="img/aleman.jpg" id="visa" width="25" height="10"></button>
+                            <button class="traslate" id="ale" style="border-radius: 6px; border:0; background-color: transparent; "><img src="img/aleman.jpg" id="visa" width="30" height="20"></button>
                         </li>
+                        <li><span id="minuto">0</span>:<span id="segundo">0</span></li>
                     </ul>
 
                 </div>
@@ -86,7 +117,7 @@ include './template.php';
             </nav>
 
             <?php
-            session_destroy();
+            //session_destroy();
             //session_start();
             $valor = $_POST['valor'];
             $servicio = $_POST['servicio'];
@@ -107,7 +138,7 @@ include './template.php';
                                 <input type="text" class="form-control" id="servicio" value="<?php echo $servicio ?>" readonly>
                         </div>
                         <div class="form-group owner">
-                            <label class="lang" for="owner" key="cod_len10">Valor</label>
+                            <label class="lang" for="owner" key="cod_len10">Valor a Pagar</label>
                             <input type="text" class="form-control" id="valorPago" value="<?php echo $valor ?>" readonly>
                         </div>
                         <input type="text" value="pagado" hidden name="estado">
@@ -132,8 +163,8 @@ include './template.php';
                             <tr>
                                 <td>
                                     <div class="form-group" id="card-number-field">
-                                        <label class="lang" for="cardNumber" key="cod_len11">Numero de tarjeta</label>
-                                        <input type="text" class="form-control" id="cardNumber">
+                                        <label class="lang" for="cardNumber" key="cod_len11">Número de tarjeta</label>
+                                        <input type="text" class="form-control" id="cardNumber"  required >
                                     </div>
                                     <div class="form-group" id="credit_cards">
                                         <img src="img//visa.jpg" id="visa" width="25" height="25">
@@ -144,14 +175,14 @@ include './template.php';
                                 <td>
                                     <div class="form-group CVV ">
                                         <label for="cvv">CVV</label>
-                                        <input type="text" class="form-control" id="cvv">
+                                        <input type="text" class="form-control" id="cvv" required>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="form-group" id="expiration-date">
-                                        <label class="lang" for="expiracion" key="cod_len12">Fecha de Expiracion</label>
+                                        <label class="lang" for="expiracion" key="cod_len12">Fecha de Expiración</label>
                                         <select class="form-control">
                                             <option class="lang" value="01" key="cod_len13">Enero</option>
                                             <option class="lang" value="02" key="cod_len14">Febrero</option>
@@ -188,7 +219,10 @@ include './template.php';
                         </table>
                         <center>
                             <div class="form-group" id="pay-now">
-                                <button type="submit" class="lang" key="cod_len28" id="confirm-purchase" style="font-size: 20px; border-radius: 6px; padding:8px;    background: #E0EAFC ">Confirmar</button>
+                                <button type="submit" class="lang" key="cod_len28" id="confirm-purchase" style=" font-size: 20px;  border-radius: 6px; padding:10px 20px;  border: 0px solid;  background: #A1FFCE;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ "><b>Confirmar</b>  </button>
                             </div>
                         </center>
                         </form>
@@ -422,6 +456,8 @@ include './template.php';
         //            });
         //        });
     </script>
+
+
 
     <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
     <script src="https://rawgit.com/jeresig/jquery.hotkeys/master/jquery.hotkeys.js"></script>

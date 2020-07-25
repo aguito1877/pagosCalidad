@@ -40,7 +40,8 @@
         <a class="smooth-scroll" href="#Header"></a>
       </li>
       <li class="sidebar-nav-item">
-        <a class="smooth-scroll" href="#OurWork">Servicios </a>
+</br>
+        <a class="smooth-scroll" href="#OurWork"><h3>Servicios</h3>  </a>
       </li>
       
     </ul>
@@ -51,17 +52,21 @@
     <img src="images/logoEasy.PNG">
   </div>
   <div class="blacksection">
-    <h1>Pagos<br>Rapidos<br>y Seguros</h1>
+    <h1>Pagos<br>Rápidos<br>y Seguros</h1>
   </div>
 </section>
 <a href="#OurWork" class="mscroll"><img src="images/mouse-icon.png" alt="mouse icon"></a>
 
 <section id="OurWork">
   <div class="container">
-    <h2>Servicios </h2>
+    <h2>SERVICIOS</h2>
+    <center>
+    
+   
     <div class="row">
       
-      <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+      <!---<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">-->
+
         <div class="each-work space" data-toggle="modal" data-target="#agua">
           
           <img src="images/servicios/logo agua.gif" alt="Bearbrand" width="200px">
@@ -75,8 +80,9 @@
         </div>
         
         
-      </div>
+      <!---</div>-->
     </div>
+    </center>
   </div>
 
   <?php include('modal/agua.php')?>

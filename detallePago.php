@@ -17,7 +17,7 @@ $cedula = $_POST['cedula'];
 $nombre= '';
 $_SESSION['cedula'] = $cedula;
 $estado = $_POST['estado'];
-echo $estado;
+
 $consulta = "SELECT * FROM usuario WHERE cedula='$cedula'";
     $resul = mysqli_query($conexion, $consulta);
 
@@ -44,24 +44,24 @@ mysqli_query($conexion, $actualizar);
             </div>
             <div class="card bg-secondary">
             <div class="card-header">
-            <h2 class='text-center'>Detalle del Pago</h2>
+            <h2 class='text-center'><b>Detalle del Pago</b>  </h2>
             </div>
 
             <div class="card-body">
             <div class="form-group">
-            Nombre:
+            <b>Nombre:</b>
             <label class='form-control' for=""><?php echo $nombre ?></label>
             </div>
             <div class="form-group">
-            Servicio
+            <b>Servicio</b>
             <label class='form-control' for=""><?php echo $servicio ?></label>
             </div>
             <div class="form-group">
-            Valor
+            <b>Valor</b>
             <label class='form-control' for="">$<?php echo $valor ?></label>
             </div>
             <div class="form-group">
-            Estado
+            <b>Estado</b>
             <label class='form-control' for=""><?php echo $estado ?></label>
             </div>
             
@@ -69,7 +69,7 @@ mysqli_query($conexion, $actualizar);
             </div>
             
             <hr>
-            <a href='index.php' class="btn btn-primary btn-lg btn-block">Salir</a>
+            <a href='index.php' class="btn btn-primary btn-lg btn-block"><h4>Salir</h4></a>
             
             </div>
         </div>
