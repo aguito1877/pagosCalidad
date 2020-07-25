@@ -29,7 +29,9 @@
         "cod_len25":"Payment type",
         "cod_len26":"Current",
         "cod_len27":"Credit",
-        "cod_len28":"Confirm"
+        "cod_len28":"Confirm",
+        "cod_valor":"value",
+        "cod_servicio":"service"
 
     },
     "fra":{
@@ -62,7 +64,9 @@
         "cod_len25":"Type de paiement",
         "cod_len26":"courant",
         "cod_len27":"Crédit",
-        "cod_len28":"Confirmer"
+        "cod_len28":"Confirmer",
+        "cod_valor":"valeur",
+        "cod_servicio":"un service"
     },
     "ale":{
         "cod_len1":"Agile Zahlungen",
@@ -94,6 +98,8 @@
         "cod_len25":"Zahlungsart",
         "cod_len26":"Strom",
         "cod_len27":"Anerkennung",
-        "cod_len28":"Bestätigen"
+        "cod_len28":"Bestätigen",
+        "cod_valor":"Wert",
+        "cod_servicio":"Bedienung"
     }
 }

@@ -103,11 +103,11 @@ include './template.php';
                     <center>
                         <div class="form-group owner">
                             <form method="POST" action="detallePago.php">
-                                <label class="lang" for="owner" key="cod_len10">Servicio</label>
+                                <label class="lang" for="owner" key="cod_servicio">Servicio</label>
                                 <input type="text" class="form-control" id="servicio" value="<?php echo $servicio ?>" readonly>
                         </div>
                         <div class="form-group owner">
-                            <label class="lang" for="owner" key="cod_len10">Valor</label>
+                            <label class="lang" for="owner" key="cod_valor">Valor</label>
                             <input type="text" class="form-control" id="valorPago" value="<?php echo $valor ?>" readonly>
                         </div>
                         <input type="text" value="pagado" hidden name="estado">
@@ -125,7 +125,7 @@ include './template.php';
                                 <td>
                                     <div class="form-group owner">
                                         <label class="lang" for="owner" key="cod_len10">Propietario</label>
-                                        <input type="text" class="form-control" id="owner" value="<?php echo $nombre ?>">
+                                        <input type="text" class="form-control" id="owner" required value="<?php echo $nombre ?>">
                                     </div>
                                 </td>
                             </tr>
@@ -133,7 +133,7 @@ include './template.php';
                                 <td>
                                     <div class="form-group" id="card-number-field">
                                         <label class="lang" for="cardNumber" key="cod_len11">Numero de tarjeta</label>
-                                        <input type="text" class="form-control" id="cardNumber">
+                                        <input type="text" class="form-control" id="cardNumber" required>
                                     </div>
                                     <div class="form-group" id="credit_cards">
                                         <img src="img//visa.jpg" id="visa" width="25" height="25">
@@ -144,7 +144,7 @@ include './template.php';
                                 <td>
                                     <div class="form-group CVV ">
                                         <label for="cvv">CVV</label>
-                                        <input type="text" class="form-control" id="cvv">
+                                        <input type="text" class="form-control" id="cvv" required>
                                     </div>
                                 </td>
                             </tr>
@@ -152,7 +152,7 @@ include './template.php';
                                 <td>
                                     <div class="form-group" id="expiration-date">
                                         <label class="lang" for="expiracion" key="cod_len12">Fecha de Expiracion</label>
-                                        <select class="form-control">
+                                        <select class="form-control" required>
                                             <option class="lang" value="01" key="cod_len13">Enero</option>
                                             <option class="lang" value="02" key="cod_len14">Febrero</option>
                                             <option class="lang" value="03" key="cod_len15">Marzo</option>
@@ -166,7 +166,7 @@ include './template.php';
                                             <option class="lang" value="11" key="cod_len23">Noviembre</option>
                                             <option class="lang" value="12" key="cod_len24">Diciembre</option>
                                         </select>
-                                        <select class="form-control">
+                                        <select class="form-control" required>
                                             <option value="16"> 2021</option>
                                             <option value="17"> 2022</option>
                                             <option value="18"> 2023</option>
