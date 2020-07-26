@@ -30,7 +30,7 @@ while ($fila = mysqli_fetch_array($query)) {
 
 
     if(mysqli_num_rows($query)>=1){
-        session_destroy();
+        //session_destroy();
     session_start();
     $_SESSION['cedula'] = $cedula;
     ?>
@@ -40,24 +40,24 @@ while ($fila = mysqli_fetch_array($query)) {
             <div class="col-md-4 offset-md-4">
             <div class="card bg-secondary">
             <div class="card-header">
-            <h2 class='text-center'>Verificar Valores</h2>
+            <h2 class='text-center'><b>Verificar Valores</b> </h2>
             </div>
 
             <div class="card-body">
             <div class="form-group">
-            Nombre:
+            <b>Nombre:</b>
             <label class='form-control' for=""><?php echo $nombre.' '.$apellido ?></label>
             </div>
             <div class="form-group">
-            Servicio
+            <b>Servicio</b>
             <label class='form-control' for=""><?php echo $servicio ?></label>
             </div>
             <div class="form-group">
-            Valor
+            <b>Valor a Pagar</b>
             <label class='form-control' for="">$<?php echo $valor ?></label>
             </div>
             <div class="form-group">
-            Estado:
+            <b>Estado:</b>
             <label class='form-control' for=""><?php echo $estado ?></label>
             </div>
             
@@ -70,11 +70,11 @@ while ($fila = mysqli_fetch_array($query)) {
             <input type="text" name="valor" value="<?php echo $valor ?>" hidden>
             <input type="text" name="cedula" value="<?php echo $cedula ?>" hidden>
             <input type="text" name="nombre" value="<?php echo $nombre.' '.$apellido ?>" hidden>
-            <button type="subtmit" class="btn btn-primary btn-lg btn-block">Pagar</button>
+            <button type="subtmit" class="btn btn-primary btn-lg btn-block"><h4>Pagar</h4>  </button>
             </form>
             <hr>
             <hr>
-            <a href="index.php" class="btn btn-primary btn-lg btn-block">Salir</a>
+            <a href="index.php" class="btn btn-primary btn-lg btn-block"><h4>Salir</h4>  </a>
             
 
             

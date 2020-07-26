@@ -61,6 +61,7 @@
 		height: 120px;
 	}
 	#OurWork .each-work img {
+		
 		width: 100%;
 		height: auto;
 	}
@@ -202,6 +203,7 @@
 		font-size: 38px;
 	}
 	#OurWork .each-work {
+		left: 350px;
 		width: 151px;
 	}
 	.blog-wrap:before {
@@ -237,7 +239,8 @@
 		font-size: 60px;
 	}
 	#OurWork .each-work {
-		width: 30.6%;
+left: -850px;
+		width: 30%;
 	}
 	#OurBlog .each-block::before {
 		right: -53px;
