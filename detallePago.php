@@ -29,6 +29,37 @@ $consulta = "SELECT * FROM usuario WHERE cedula='$cedula'";
 
     }
 
+    // transacciones exitosas
+    $cantidad = 0;
+    $dato_produ = "SELECT * FROM transacciones_exitosas";
+    $r2 = $conexion->query($dato_produ);
+    
+    foreach ($r2 as $r1) {
+        $cantidad++;
+    }
+    
+    $total_tiempo = "SELECT * FROM transacciones_exitosas WHERE `transacciones_exitosas`.`id_temp` = " . $cantidad . ";";
+    $r3 = $conexion->query($total_tiempo);
+    $row2 = $r3->fetch_assoc();
+    echo $fecha = date("H:i:s");
+    $porciones = explode(":", $fecha);
+    
+    
+          $porciones[1]; 
+          $seg1=$porciones[1] + $porciones[2]/60; 
+          $seg2=$seg1*60;
+    
+    if($row2["estado"]!="Tiempo_total"){
+       $seg =($seg2-$row2["tiempo"]);
+    
+    $q = "UPDATE  `transacciones_exitosas` SET `tiempo`='" . $seg . "'" . ", `estado` = 'Tiempo_total' WHERE `transacciones_exitosas`.`id_temp` = " . $cantidad . ";";
+    //print_r($q);
+    $resource = $conexion->query($q); 
+    }
+    //fin de conteo
+
+
+
 $actualizar = " Update usuario Set estado='$estado' Where cedula='$cedula' ";
 mysqli_query($conexion, $actualizar);
 ?>
