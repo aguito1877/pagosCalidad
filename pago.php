@@ -138,11 +138,7 @@ padding:0;
                                 <input type="text" class="form-control" id="servicio" value="<?php echo $servicio ?>" readonly>
                         </div>
                         <div class="form-group owner">
-<<<<<<< HEAD
                             <label class="lang" for="owner" key="cod_valor">Valor</label>
-=======
-                            <label class="lang" for="owner" key="cod_len10">Valor a Pagar</label>
->>>>>>> d78928a82773fec05a137f2e2c7656add6bc2137
                             <input type="text" class="form-control" id="valorPago" value="<?php echo $valor ?>" readonly>
                         </div>
                         <input type="text" value="pagado" hidden name="estado">
@@ -167,13 +163,8 @@ padding:0;
                             <tr>
                                 <td>
                                     <div class="form-group" id="card-number-field">
-<<<<<<< HEAD
                                         <label class="lang" for="cardNumber" key="cod_len11">Numero de tarjeta</label>
                                         <input type="text" class="form-control" id="cardNumber" required>
-=======
-                                        <label class="lang" for="cardNumber" key="cod_len11">Número de tarjeta</label>
-                                        <input type="text" class="form-control" id="cardNumber"  required >
->>>>>>> d78928a82773fec05a137f2e2c7656add6bc2137
                                     </div>
                                     <div class="form-group" id="credit_cards">
                                         <img src="img//visa.jpg" id="visa" width="25" height="25">
@@ -191,13 +182,8 @@ padding:0;
                             <tr>
                                 <td>
                                     <div class="form-group" id="expiration-date">
-<<<<<<< HEAD
                                         <label class="lang" for="expiracion" key="cod_len12">Fecha de Expiracion</label>
                                         <select class="form-control" required>
-=======
-                                        <label class="lang" for="expiracion" key="cod_len12">Fecha de Expiración</label>
-                                        <select class="form-control">
->>>>>>> d78928a82773fec05a137f2e2c7656add6bc2137
                                             <option class="lang" value="01" key="cod_len13">Enero</option>
                                             <option class="lang" value="02" key="cod_len14">Febrero</option>
                                             <option class="lang" value="03" key="cod_len15">Marzo</option>
