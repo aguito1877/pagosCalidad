@@ -66,7 +66,30 @@ $resul1 = mysqli_query($conexion, $chatVeces);
 <br>
 <br>
 <hr style="border:15px;"/>
+<h3 class="text-center">9. Numero de paginas abandonas por usuario</h3>
+<table class="table table-hover">
+<thead>
+<th>Nuero de Veces</th>
+<th>Usuario</th>
 
+</thead>
+<tbody>
+<tr>
+<?php
+$errorVeces = "SELECT count(*) as N_Veces, usuario FROM pag_abandonadas group by usuario ";
+$resul1 = mysqli_query($conexion, $errorVeces);
+
+    while ($fila = mysqli_fetch_array($resul1)) {
+        
+        $nveces = $fila['N_Veces'];
+        $usuario = $fila['usuario'];
+        echo "<td>$nveces</td>";
+        echo "<td>$usuario</td></tr>";
+    }
+?>
+</tbody>
+
+</table>
 <h3 class='text-center'>10. Números de mensajes de error visualizados durante una sesión</h3>
 <table class="table table-hover">
 <thead>
@@ -79,7 +102,7 @@ $resul1 = mysqli_query($conexion, $chatVeces);
 <tr>
     <?php
      include('conexion.php');
-    $msg_error = "SELECT * FROM msg_error1 ";
+    $msg_error = "SELECT * FROM `msg_error1` limit 0,10 ";
     $resul = mysqli_query($conexion, $msg_error);
 
     while ($fila = mysqli_fetch_array($resul)) {
@@ -100,7 +123,7 @@ $resul1 = mysqli_query($conexion, $chatVeces);
 
 </table>
 <h3 class="text-center">Numero de veces por Usuario</h3>
-<table class="table table-hover">
+<table class="table table-hover" >
 <thead>
 <th>Nuero de Veces</th>
 <th>Usuario</th>
@@ -149,5 +172,8 @@ echo"</table>";
 ?>
 </div>
 </div>
+
+
+
 </body>
 </html>

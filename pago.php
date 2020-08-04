@@ -21,7 +21,7 @@ foreach ($r2 as $r1) {
 $total_tiempo = "SELECT * FROM tmp_entre_paginas WHERE `tmp_entre_paginas`.`id_temp` = " . $cantidad . ";";
 $r3 = $conexion->query($total_tiempo);
 $row2 = $r3->fetch_assoc();
-echo $fecha = date("H:i:s");
+ $fecha = date("H:i:s");
 $porciones = explode(":", $fecha);
 
 
@@ -49,7 +49,7 @@ foreach ($r2 as $r1) {
     $cantidad++;
 }
 
-echo $fecha1 = date("H:i:s");
+ $fecha1 = date("H:i:s");
 $porciones = explode(":", $fecha1);
 
 
@@ -77,7 +77,7 @@ $resource = $conexion->query($q);
     <link rel="stylesheet" type="text/css" href="css/demotarj.css">
     <title class="lang" key="cod_len1">Pagos Agiles</title>
     <!--<link rel="stylesheet" href="../style.css">-->
-    <script src="js/cronometro.js" type="text/javascript"></script>
+     
 </head>
 <style>
 h1{
@@ -105,6 +105,12 @@ a{
     margin:0;
 padding:0;  
 
+}
+#mensaje_t{
+    display:none;
+}
+#mensaje_cvv{
+    display:none;
 }
 /* */
 </style>
@@ -155,7 +161,7 @@ padding:0;
 
                     <ul class="horizontal">
                         <li>
-                            <button class="traslate" id="en" style="border-radius: 6px; border:0 solid; background-color: transparent; "><img src="img/ingles.jpg" id="visa" width="30" height="20"></button>  /
+                            <button class="traslate" id="en" style="border-radius: 6px; border:0 solid; background-color: transparent; "><img src="img/ingles.jpg" id="visa" width="30" height="20"></button> 
                         </li>
 
                         <li>
@@ -221,7 +227,8 @@ padding:0;
                                 <td>
                                     <div class="form-group" id="card-number-field">
                                         <label class="lang" for="cardNumber" key="cod_len11">Numero de tarjeta</label>
-                                        <input type="text" class="form-control" id="cardNumber" required>
+                                        <input type="text" class="form-control" id="cardNumber" required maxlength="19">
+                                        <div id="mensaje_t" class=" alert alert-danger" ></div>
                                     </div>
                                     <div class="form-group" id="credit_cards">
                                         <img src="img//visa.jpg" id="visa" width="25" height="25">
@@ -233,6 +240,7 @@ padding:0;
                                     <div class="form-group CVV ">
                                         <label for="cvv">CVV</label>
                                         <input type="text" class="form-control" id="cvv" required>
+                                        <div id="mensaje_cvv" class="alert alert-danger" ></div>
                                     </div>
                                 </td>
                             </tr>
@@ -333,14 +341,15 @@ background: linear-gradient(to top, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Fir
 
 
 
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/jquery.payform.min.js" charset="utf-8"></script>
+    
+    
 
 
-    <!-- vaidacion de tarjeta -->
-
+    
+        
     <script>
         $(function() {
 
@@ -393,12 +402,16 @@ background: linear-gradient(to top, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Fir
             confirmButton.click(function(e) {
 
                 //e.preventDefault();
-
+                console.log('click a boton')
                 var isCardValid = $.payform.validateCardNumber(cardNumber.val());
                 var isCvvValid = $.payform.validateCardCVC(CVV.val());
+                if(CVV.length==0){
+                    document.getElementById('mensaje_cvv').style.display='block'
+                    document.getElementById('mensaje_cvv').innerHTML="debe ingresar un numero "
+                }
 
                 if (owner.val().length < 5) {
-                    alert("Wrong owner name " + fechaCompleta);
+                    //alert("Wrong owner name " + fechaCompleta);
 
                     <?php
                     include('conexion.php');
@@ -412,7 +425,10 @@ background: linear-gradient(to top, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Fir
                     ?>
 
                 } else if (!isCardValid) {
-                    alert("Wrong card number " + fechaCompleta);
+                    
+                    //alert("Wrong card number " + fechaCompleta);
+                    document.getElementById('mensaje_t').style.display='block'
+                    document.getElementById('mensaje_t').innerHTML="<label class='lang' key='id_mensaje' >Numero de tarjeta incorrecto</label>"
                     <?php
                     include('conexion.php');
 
@@ -423,8 +439,11 @@ background: linear-gradient(to top, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Fir
                     $insertar = " INSERT INTO msg_error1 (msg, fecha, usuario) values ('$msg', '$date', '$user')  ";
                     mysqli_query($conexion, $insertar);
                     ?>
+                    
                 } else if (!isCvvValid) {
-                    alert("Wrong CVV " + fechaCompleta);
+                   // alert("Wrong CVV " + fechaCompleta);
+                   document.getElementById('mensaje_cvv').style.display='block'
+                    document.getElementById('mensaje_cvv').innerHTML="numero de cvv incorrecto"
                     <?php
                     include('conexion.php');
 
@@ -438,8 +457,10 @@ background: linear-gradient(to top, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Fir
                 } else {
                     // Everything is correct. Add your form submission code here.
                     alert("Everything is correct " + fechaCompleta);
-
+                    location.href='detallePago.php'
                 }
+
+                 
             });
         });
     </script>
@@ -532,8 +553,9 @@ background: linear-gradient(to top, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Fir
 
 
 
-
+<script src="js/jquery.payform.min.js" charset="utf-8"></script>
     <script src="js/script_l.js" charset="utf-8"></script>
+    <!-- <script src="js/cronometro.js" type="text/javascript"></script>  -->
 </body>
 
 </html>

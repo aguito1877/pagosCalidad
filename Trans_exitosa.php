@@ -37,7 +37,7 @@ while ($row = $ejecuta->fetch_assoc())
 
 echo "<tr><th align='center'>Tiempo General de Todas las transacciones</th>";
 echo"<td><b>".$tiempo_total/$con." seg"."</b></td></tr>";
-echo "<h3 class='text-center'>Tiempo realizado de Transacciones Exitosas</h3>";
+echo "<h3 class='text-center'>14. Tiempo realizado de Transacciones Exitosas</h3>";
 
 echo  "</table>";
 

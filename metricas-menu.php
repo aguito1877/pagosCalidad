@@ -31,12 +31,15 @@
 				</div>
 
 				<div class="tab-pane" id="2a">
-          <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
+				<?php include('efectividad.php') ?>
+
 				</div>
 
         <div class="tab-pane" id="3a">
           <p class='text-center'>Metricas de eficiencia</p>
+		  <?php include('Trans_exitosa.php') ?>
 		  <?php include('metricas_br.php') ?>
+		  
 				</div>
 
           
