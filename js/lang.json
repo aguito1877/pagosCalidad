@@ -67,7 +67,9 @@
         "cod_len27":"Crédit",
         "cod_len28":"Confirmer",
         "cod_valor":"valeur",
-        "cod_servicio":"un service"
+        "cod_servicio":"un service",
+        "id_mensaje": "Numéro de carte incorrect"
+
     },
     "ale":{
         "cod_len1":"Agile Zahlungen",
@@ -101,6 +103,8 @@
         "cod_len27":"Anerkennung",
         "cod_len28":"Bestätigen",
         "cod_valor":"Wert",
-        "cod_servicio":"Bedienung"
+        "cod_servicio":"Bedienung",
+        "id_mensaje": "Falsche Kartennummer"
+
     }
 }
