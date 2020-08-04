@@ -62,7 +62,6 @@ $q = "INSERT INTO `transacciones_exitosas` (`id_temp`, `cliente`,`tiempo`, `esta
 //print_r($q);
 $resource = $conexion->query($q);
 //fin transacciones exitosas
-
 ?>
 
 <head>
