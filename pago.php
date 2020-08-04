@@ -61,7 +61,7 @@ $seg2 = $seg1 * 60;
 $q = "INSERT INTO `transacciones_exitosas` (`id_temp`, `cliente`,`tiempo`, `estado`) VALUES ('" . ($cantidad + 1) . "','" . $cedula . "','" . $seg2 . "','contando_tiempo')";
 //print_r($q);
 $resource = $conexion->query($q);
-//fin transacciones exitosas
+//fin transacciones exitosa
 ?>
 
 <head>

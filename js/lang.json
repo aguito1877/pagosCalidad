@@ -31,6 +31,7 @@
         "cod_len27":"Credit",
         "cod_len28":"Confirm",
         "cod_valor":"value",
+        "mensaje_error":"number incorrect",
         "cod_servicio":"service"
 
     },
