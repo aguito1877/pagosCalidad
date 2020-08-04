@@ -18,7 +18,7 @@ var cronometro;
                }
               s.innerHTML=cont_s;
               cont_s++;
-              if(cont_s==30){
+              if(cont_s==60){
 
                 
                  alert('Tiempo finalizado, sesión cerrada');

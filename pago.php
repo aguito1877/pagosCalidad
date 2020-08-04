@@ -6,6 +6,63 @@ and open the template in the editor.
 -->
 <?php
 include './template.php';
+
+
+// tiempo total transcurrido para el conteo de una pagina a otra
+require "conexion.php";
+$cantidad = 0;
+$dato_produ = "SELECT * FROM tmp_entre_paginas";
+$r2 = $conexion->query($dato_produ);
+
+foreach ($r2 as $r1) {
+    $cantidad++;
+}
+
+$total_tiempo = "SELECT * FROM tmp_entre_paginas WHERE `tmp_entre_paginas`.`id_temp` = " . $cantidad . ";";
+$r3 = $conexion->query($total_tiempo);
+$row2 = $r3->fetch_assoc();
+echo $fecha = date("H:i:s");
+$porciones = explode(":", $fecha);
+
+
+      $porciones[1]; 
+      $seg1=$porciones[1] + $porciones[2]/60; 
+      $seg2=$seg1*60;
+
+if($row2["estado"]!="Tiempo_total"){
+   $seg =($seg2-$row2["tiempo"]);
+
+$q = "UPDATE  `tmp_entre_paginas` SET `tiempo`='" . $seg . "'" . ", `estado` = 'Tiempo_total' WHERE `tmp_entre_paginas`.`id_temp` = " . $cantidad . ";";
+//print_r($q);
+$resource = $conexion->query($q); 
+}
+//fin de conteo
+
+
+//transacciones exitosa
+$cedula = $_POST['cedula'];
+$cantidad = 0;
+$dato_produ = "SELECT * FROM transacciones_exitosas";
+$r2 = $conexion->query($dato_produ);
+
+foreach ($r2 as $r1) {
+    $cantidad++;
+}
+
+echo $fecha1 = date("H:i:s");
+$porciones = explode(":", $fecha1);
+
+
+$porciones[1];
+$seg1 = $porciones[1] + $porciones[2] / 60;
+$seg2 = $seg1 * 60;
+
+//echo "<br>" . $seg;
+$q = "INSERT INTO `transacciones_exitosas` (`id_temp`, `cliente`,`tiempo`, `estado`) VALUES ('" . ($cantidad + 1) . "','" . $cedula . "','" . $seg2 . "','contando_tiempo')";
+//print_r($q);
+$resource = $conexion->query($q);
+//fin transacciones exitosas
+
 ?>
 
 <head>
@@ -138,7 +195,11 @@ padding:0;
                                 <input type="text" class="form-control" id="servicio" value="<?php echo $servicio ?>" readonly>
                         </div>
                         <div class="form-group owner">
+<<<<<<< HEAD
                             <label class="lang" for="owner" key="cod_valor">Valor</label>
+=======
+                            <label class="lang" for="owner" key="cod_len10">Valor a Pagar</label>
+>>>>>>> a52f7aacfa3d706f4021d1891b30130916589314
                             <input type="text" class="form-control" id="valorPago" value="<?php echo $valor ?>" readonly>
                         </div>
                         <input type="text" value="pagado" hidden name="estado">
