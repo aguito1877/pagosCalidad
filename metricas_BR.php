@@ -2,24 +2,7 @@
 <?php
 require 'conexion.php';
 
-$consulta_tiempo = "SELECT id_temp,cliente,AVG(tiempo) FROM tmp_entre_paginas WHERE estado = 'Tiempo_total' GROUP BY cliente";
-$ejecuta = $conexion->query($consulta_tiempo);
 
-echo "<h3 class='text-center'>Tiempo promedio de transacción por usuario</h3>";
-echo  "<table class='table table-hover'>
-            <tr>
-                <th>Cédula Usuario</th>
-                <th>Tiempo Promedio</th>
-            </tr>
-";
-
-while ($row = $ejecuta->fetch_assoc()) {
-    echo  "<tr>";
-
-    echo  "<td>". $row['cliente'] . "</td><td>".$row['AVG(tiempo)'] . " seg</td>";
-    echo "</tr>";
-};
-echo"</table>";
 
 
 //Consulta para transacciones exitosas en un tiempo determinado
@@ -32,7 +15,7 @@ while ($row = $ejecuta2->fetch_assoc()) {
     }
 }
 
-echo "<h3 class='text-center'>Transacciones Exitosas</h3>";
+echo "<h3 class='text-center'>15. Transacciones Exitosas</h3>";
 $template = '
         <table class="table table-hover">
             <tr>

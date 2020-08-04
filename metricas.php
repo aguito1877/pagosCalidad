@@ -8,11 +8,11 @@
 </head>
 <body>
 <div class="container">
-<div class="col-6">
+<div class="col-12">
 
 
 <h1 class='text-center'>Entendibilidad</h1>
-<h3 class='text-center'>Cantidad de veces que el usuario final accede, durante unas sesión, a las funciones de ayuda en línea.</h3>
+<h3 class='text-center'>8. Cantidad de veces que el usuario final accede, durante unas sesión, a las funciones de ayuda en línea.</h3>
 <table class="table table-hover">
 <thead class="card-header">
 <th>Fecha</th>
@@ -67,7 +67,7 @@ $resul1 = mysqli_query($conexion, $chatVeces);
 <br>
 <hr style="border:15px;"/>
 
-<h3 class='text-center'>Números de mensajes de error visualizados durante una sesión</h3>
+<h3 class='text-center'>10. Números de mensajes de error visualizados durante una sesión</h3>
 <table class="table table-hover">
 <thead>
 <th>Mensaje</th>
@@ -123,6 +123,30 @@ $resul1 = mysqli_query($conexion, $errorVeces);
 </tbody>
 
 </table>
+
+<?php 
+
+require 'conexion.php';
+
+$consulta_tiempo = "SELECT id_temp,cliente,AVG(tiempo) FROM tmp_entre_paginas WHERE estado = 'Tiempo_total' GROUP BY cliente";
+$ejecuta = $conexion->query($consulta_tiempo);
+
+echo "<h3 class='text-center'>11. Tiempo promedio de transacción por usuario</h3>";
+echo  "<table class='table table-hover'>
+            <tr>
+                <th>Cédula Usuario</th>
+                <th>Tiempo Promedio</th>
+            </tr>
+";
+
+while ($row = $ejecuta->fetch_assoc()) {
+    echo  "<tr>";
+
+    echo  "<td>". $row['cliente'] . "</td><td>".$row['AVG(tiempo)'] . " seg</td>";
+    echo "</tr>";
+};
+echo"</table>";
+?>
 </div>
 </div>
 </body>

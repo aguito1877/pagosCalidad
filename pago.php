@@ -195,11 +195,7 @@ padding:0;
                                 <input type="text" class="form-control" id="servicio" value="<?php echo $servicio ?>" readonly>
                         </div>
                         <div class="form-group owner">
-<<<<<<< HEAD
                             <label class="lang" for="owner" key="cod_valor">Valor</label>
-=======
-                            <label class="lang" for="owner" key="cod_len10">Valor a Pagar</label>
->>>>>>> a52f7aacfa3d706f4021d1891b30130916589314
                             <input type="text" class="form-control" id="valorPago" value="<?php echo $valor ?>" readonly>
                         </div>
                         <input type="text" value="pagado" hidden name="estado">
