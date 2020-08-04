@@ -411,18 +411,9 @@ background: linear-gradient(to top, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Fir
                 }
 
                 if (owner.val().length < 5) {
-                    //alert("Wrong owner name " + fechaCompleta);
+                    alert("Wrong owner name " + fechaCompleta);
 
-                    <?php
-                    include('conexion.php');
-                    date_default_timezone_set('America/Guayaquil');
-                    $msg = 'Nombre de Usuario incorrecto ';
-                    $date = date('l jS \of F Y h:i:s A');;
-                    $user = $cedula;
-
-                    $insertar = " INSERT INTO msg_error1 (msg, fecha, usuario) values ('$msg', '$date', '$user')  ";
-                    mysqli_query($conexion, $insertar);
-                    ?>
+                
 
                 } else if (!isCardValid) {
                     
@@ -439,6 +430,7 @@ background: linear-gradient(to top, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Fir
                     $insertar = " INSERT INTO msg_error1 (msg, fecha, usuario) values ('$msg', '$date', '$user')  ";
                     mysqli_query($conexion, $insertar);
                     ?>
+                    document.getElementById('cardNumber').value=""
                     
                 } else if (!isCvvValid) {
                    // alert("Wrong CVV " + fechaCompleta);
